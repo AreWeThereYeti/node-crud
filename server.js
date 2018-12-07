@@ -21,18 +21,17 @@ mongoose.connection
     console.log(`Connection error: ${err.message}`);
   });
 
-
 // Routes
 const product = require('./routes/product.route'); // Imports routes for the products
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/products', product);
 
-let port = 1234;
+let port = process.env.PORT || 4000;
 
 app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
+  console.log('Server is up and running on port numner ' + port);
 });
