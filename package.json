@@ -2,18 +2,24 @@
   "name": "retail",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon --watch src server.js"
+    "tsc": "tsc",
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/app.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^4.17.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.1",
     "dotenv": "^6.0.0",
+    "eslint": "^6.1.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.18",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.19.1",
+    "typescript": "^3.5.3"
   }
 }
