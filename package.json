@@ -2,18 +2,29 @@
   "name": "retail",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon --watch src server.js"
+    "build": "tsc",
+    "dev": "ts-node src/server.ts",
+    "start": "nodemon dist/server.js",
+    "prod": "npm run build && npm run start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/node": "^10.12.12",
+    "@types/node-fetch": "^2.1.7",
     "body-parser": "^1.18.3",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
-    "mongoose": "^5.2.18",
-    "nodemon": "^1.18.4"
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.2.19",
+    "node-fetch": "^2.3.0",
+    "nodemon": "^1.18.10",
+    "ts-node": "^8.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.2.2"
   }
 }
