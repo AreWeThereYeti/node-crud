@@ -1,0 +1,29 @@
+version: "3"
+services:
+  nod_dev_env:
+    build: .
+    container_name: node-crud
+    ports:
+      - 4080:4000
+    restart: always
+    networks:
+      - internal_network
+    volumes:
+      - ./:/app
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    networks:
+      - internal_network
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
+
+networks:
+  internal_network:
+    driver: bridge
